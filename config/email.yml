@@ -9,6 +9,7 @@ production:
     authentication: :login
     user_name: "redmine@gmail.com"
     password: "redmine"
+    tls: true
   
 development:
   delivery_method: :smtp
@@ -19,3 +20,4 @@ development:
     authentication: :login
     user_name: "redmine@gmail.com"
     password: "redmine"
+    tls: true
