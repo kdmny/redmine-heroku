@@ -10,14 +10,3 @@ production:
     user_name: "redmine@gmail.com"
     password: "redmine"
     tls: true
-  
-development:
-  delivery_method: :smtp
-  smtp_settings:
-    address: 127.0.0.1
-    port: 587
-    domain: gmail.com
-    authentication: :login
-    user_name: "redmine@gmail.com"
-    password: "redmine"
-    tls: true
