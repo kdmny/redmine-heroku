@@ -1,5 +1,4 @@
 /config/database.yml
-/config/initializers/session_store.rb
 /coverage
 /db/*.db
 /db/*.sqlite3
