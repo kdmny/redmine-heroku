@@ -1,0 +1,24 @@
+# clone the redmine/heroku repo
+git clone git@github.com:tigrish/redmine.git
+cd redmine
+
+# generate the session store file
+rake config/initializers/session_store.rb
+
+# customise config/email.yml
+
+# check in customisations
+git ci -a -m "Configured application settings"
+
+# create a new heroku app, deploy and run the db tasks
+heroku create YOUR_NAME_FOR_THIS_REDMINE_INSTALL
+git push heroku master
+heroku rake db:migrate
+heroku rake redmine:load_default_data REDMINE_LANG=en
+
+#---------------------------------
+# EXTRA CREDIT
+
+# add a custom domain
+heroku addons:add custom_domains
+heroku domains:add YOUR_DOMAIN
