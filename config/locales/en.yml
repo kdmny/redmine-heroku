@@ -59,6 +59,23 @@ en:
       over_x_years:
         one:   "over 1 year"
         other: "over {{count}} years"
+
+  number:
+    human:
+      format:
+        delimiter: ""
+        precision: 1
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one: "Byte"
+            other: "Bytes"
+          kb: "KB"
+          mb: "MB"
+          gb: "GB"
+          tb: "TB"
+
         
 # Used in array.to_sentence.
   support:
@@ -683,6 +700,10 @@ en:
   label_date_from_to: From {{start}} to {{end}}
   label_wiki_content_added: Wiki page added
   label_wiki_content_updated: Wiki page updated
+  label_group: Group
+  label_group_plural: Groups
+  label_group_new: New group
+  label_time_entry_plural: Spent time
   
   button_login: Login
   button_submit: Submit

@@ -59,6 +59,22 @@ bg:
       over_x_years:
         one:   "over 1 year"
         other: "over {{count}} years"
+
+  number: 
+    human: 
+      format: 
+        precision: 1
+        delimiter: ""
+      storage_units: 
+        format: "%n %u"
+        units: 
+          kb: KB
+          tb: TB
+          gb: GB
+          byte: 
+            one: Byte
+            other: Bytes
+          mb: 'MB'
       
 # Used in array.to_sentence.
   support:
@@ -803,3 +819,7 @@ bg:
   text_journal_changed: "{{label}} changed from {{old}} to {{new}}"
   text_journal_set_to: "{{label}} set to {{value}}"
   text_journal_deleted: "{{label}} deleted"
+  label_group_plural: Groups
+  label_group: Group
+  label_group_new: New group
+  label_time_entry_plural: Spent time

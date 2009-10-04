@@ -21,7 +21,7 @@ require 'projects_controller'
 # Re-raise errors caught by the controller.
 class ProjectsController; def rescue_action(e) raise e end; end
 
-class ProjectsControllerTest < Test::Unit::TestCase
+class ProjectsControllerTest < ActionController::TestCase
   fixtures :projects, :versions, :users, :roles, :members, :member_roles, :issues, :journals, :journal_details,
            :trackers, :projects_trackers, :issue_statuses, :enabled_modules, :enumerations, :boards, :messages,
            :attachments
@@ -154,6 +154,16 @@ class ProjectsControllerTest < Test::Unit::TestCase
   end
 
   def test_show_by_identifier
+    get :show, :id => 'ecookbook'
+    assert_response :success
+    assert_template 'show'
+    assert_not_nil assigns(:project)
+    assert_equal Project.find_by_identifier('ecookbook'), assigns(:project)
+  end
+  
+  def test_show_should_not_fail_when_custom_values_are_nil
+    project = Project.find_by_identifier('ecookbook')
+    project.custom_values.first.update_attribute(:value, nil)
     get :show, :id => 'ecookbook'
     assert_response :success
     assert_template 'show'

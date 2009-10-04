@@ -83,6 +83,16 @@ de:
       format:
         delimiter: ""
         precision: 1
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one: "Byte"
+            other: "Bytes"
+          kb: "KB"
+          mb: "MB"
+          gb: "GB"
+          tb: "TB"
 
   support:
     array:
@@ -835,3 +845,7 @@ de:
   text_journal_changed: "{{label}} changed from {{old}} to {{new}}"
   text_journal_set_to: "{{label}} set to {{value}}"
   text_journal_deleted: "{{label}} deleted"
+  label_group_plural: Groups
+  label_group: Group
+  label_group_new: New group
+  label_time_entry_plural: Spent time

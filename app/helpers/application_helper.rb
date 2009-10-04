@@ -46,7 +46,11 @@ module ApplicationHelper
 
   # Display a link to user's account page
   def link_to_user(user, options={})
-    (user && !user.anonymous?) ? link_to(user.name(options[:format]), :controller => 'account', :action => 'show', :id => user) : 'Anonymous'
+    if user.is_a?(User)
+      !user.anonymous? ? link_to(user.name(options[:format]), :controller => 'account', :action => 'show', :id => user) : 'Anonymous'
+    else
+      user.to_s
+    end
   end
 
   def link_to_issue(issue, options={})
@@ -128,6 +132,15 @@ module ApplicationHelper
     s
   end
   
+  # Renders tabs and their content
+  def render_tabs(tabs)
+    if tabs.any?
+      render :partial => 'common/tabs', :locals => {:tabs => tabs}
+    else
+      content_tag 'p', l(:label_no_data), :class => "nodata"
+    end
+  end
+  
   # Renders the project quick-jump box
   def render_project_jump_box
     # Retrieve them now to avoid a COUNT query
@@ -189,6 +202,14 @@ module ApplicationHelper
       s << ("</li></ul>\n" * ancestors.size)
     end
     s
+  end
+  
+  def principals_check_box_tags(name, principals)
+    s = ''
+    principals.each do |principal|
+      s << "<label>#{ check_box_tag name, principal.id, false } #{h principal}</label>\n"
+    end
+    s 
   end
 
   # Truncates and returns the string as a single line

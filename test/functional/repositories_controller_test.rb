@@ -21,7 +21,7 @@ require 'repositories_controller'
 # Re-raise errors caught by the controller.
 class RepositoriesController; def rescue_action(e) raise e end; end
 
-class RepositoriesControllerTest < Test::Unit::TestCase
+class RepositoriesControllerTest < ActionController::TestCase
   fixtures :projects, :users, :roles, :members, :member_roles, :repositories, :issues, :issue_statuses, :changesets, :changes, :issue_categories, :enumerations, :custom_fields, :custom_values, :trackers
   
   def setup
@@ -75,6 +75,13 @@ class RepositoriesControllerTest < Test::Unit::TestCase
       {:method => :get, :path => '/projects/restmine/repository/revisions/2457'},
       :controller => 'repositories', :action => 'revision', :id => 'restmine', :rev => '2457'
     )
+  end
+  
+  def test_revision
+    get :revision, :id => 1, :rev => 1
+    assert_response :success
+    assert_not_nil assigns(:changeset)
+    assert_equal "1", assigns(:changeset).revision
   end
   
   def test_revision_with_before_nil_and_afer_normal

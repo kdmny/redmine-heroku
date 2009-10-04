@@ -84,7 +84,16 @@ fr:
     human:
       format:
         precision: 2
-      storage_units: [ Octet, ko, Mo, Go, To ]
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one: "Octet"
+            other: "Octet"
+          kb: "ko"
+          mb: "Mo"
+          gb: "Go"
+          tb: "To"
   
   support:
     array:
@@ -708,6 +717,10 @@ fr:
   label_date_from_to: Du {{start}} au {{end}}
   label_wiki_content_added: Page wiki ajoutée
   label_wiki_content_updated: Page wiki mise à jour
+  label_group_plural: Groupes
+  label_group: Groupe
+  label_group_new: Nouveau groupe
+  label_time_entry_plural: Temps passé
   
   button_login: Connexion
   button_submit: Soumettre

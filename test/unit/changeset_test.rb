@@ -17,7 +17,7 @@
 
 require File.dirname(__FILE__) + '/../test_helper'
 
-class ChangesetTest < Test::Unit::TestCase
+class ChangesetTest < ActiveSupport::TestCase
   fixtures :projects, :repositories, :issues, :issue_statuses, :changesets, :changes, :issue_categories, :enumerations, :custom_fields, :custom_values, :users, :members, :member_roles, :trackers
 
   def setup
@@ -91,7 +91,7 @@ class ChangesetTest < Test::Unit::TestCase
   end
 
   def test_next_nil
-    changeset = Changeset.find_by_revision('8')
+    changeset = Changeset.find_by_revision('10')
     assert_nil changeset.next
   end
 end

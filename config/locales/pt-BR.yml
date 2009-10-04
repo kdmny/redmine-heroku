@@ -93,6 +93,16 @@ pt-BR:
       format:
         precision: 1
         delimiter: '.'
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one: "Byte"
+            other: "Bytes"
+          kb: "KB"
+          mb: "MB"
+          gb: "GB"
+          tb: "TB"
   support:
     array:
       sentence_connector: "e"
@@ -841,3 +851,7 @@ pt-BR:
   text_journal_changed: "{{label}} alterado de {{old}} para {{new}}"
   text_journal_set_to: "{{label}} ajustado para {{value}}"
   text_journal_deleted: "{{label}} excluído"
+  label_group_plural: Grupos
+  label_group: Grupo
+  label_group_new: Novo grupo
+  label_time_entry_plural: Tempos gastos
