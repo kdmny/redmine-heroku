@@ -23,11 +23,13 @@ class ProjectsController < ApplicationController
   menu_item :settings, :only => :settings
   menu_item :issues, :only => [:changelog]
   
+  before_filter :require_login
   before_filter :find_project, :except => [ :index, :list, :add, :copy, :activity ]
   before_filter :find_optional_project, :only => :activity
   before_filter :authorize, :except => [ :index, :list, :add, :copy, :archive, :unarchive, :destroy, :activity ]
   before_filter :authorize_global, :only => :add
   before_filter :require_admin, :only => [ :copy, :archive, :unarchive, :destroy ]
+  
   accept_key_auth :activity
   
   after_filter :only => [:add, :edit, :archive, :unarchive, :destroy] do |controller|

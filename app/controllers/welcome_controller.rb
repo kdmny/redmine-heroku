@@ -17,7 +17,8 @@
 
 class WelcomeController < ApplicationController
   caches_action :robots
-
+  before_filter :require_login
+  
   def index
     @news = News.latest User.current
     @projects = Project.latest User.current
