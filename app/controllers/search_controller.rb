@@ -17,7 +17,7 @@
 
 class SearchController < ApplicationController
   before_filter :find_optional_project
-
+  before_filter :require_login
   helper :messages
   include MessagesHelper
 
